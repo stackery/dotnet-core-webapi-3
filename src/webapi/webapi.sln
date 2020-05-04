@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "webapi.csproj", "{9D857A26-5A83-4390-AB76-E8F4EC3836A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapi-framework", "..\..\..\stackery\dotnet-framework-webapi\webapi\webapi-framework.csproj", "{647F07A8-81AE-4496-B6EA-FE25CB78B68B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{9D857A26-5A83-4390-AB76-E8F4EC3836A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D857A26-5A83-4390-AB76-E8F4EC3836A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D857A26-5A83-4390-AB76-E8F4EC3836A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{647F07A8-81AE-4496-B6EA-FE25CB78B68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{647F07A8-81AE-4496-B6EA-FE25CB78B68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{647F07A8-81AE-4496-B6EA-FE25CB78B68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{647F07A8-81AE-4496-B6EA-FE25CB78B68B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
