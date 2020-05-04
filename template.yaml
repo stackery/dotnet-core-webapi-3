@@ -19,4 +19,38 @@ Resources:
                 type: http_proxy
                 uri: http://apidotnetframework-prod.us-east-1.elasticbeanstalk.com
                 payloadFormatVersion: '1.0'
+          /weatherforecast:
+            get:
+              responses: {}
       FailOnWarnings: true
+  WebApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-WebApi
+      Description: !Sub
+        - Stack ${StackTagName} Environment ${EnvironmentTagName} Function ${ResourceName}
+        - ResourceName: WebApi
+      CodeUri: src/webapi
+      Handler: webapi::webapi.LambdaEntryPoint::FunctionHandlerAsync
+      Runtime: dotnetcore3.1
+      MemorySize: 3008
+      Timeout: 30
+      Tracing: Active
+      Policies:
+        - AWSXrayWriteOnlyAccess
+      Events:
+        HttpApiGETweatherforecast:
+          Type: HttpApi
+          Properties:
+            Path: /weatherforecast
+            Method: GET
+            ApiId: !Ref HttpApi
+            PayloadFormatVersion: '2.0'
+            TimeoutInMillis: 29000
+Parameters:
+  StackTagName:
+    Type: String
+    Description: Stack Name (injected by Stackery at deployment time)
+  EnvironmentTagName:
+    Type: String
+    Description: Environment Name (injected by Stackery at deployment time)
