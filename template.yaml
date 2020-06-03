@@ -19,9 +19,6 @@ Resources:
                 type: http_proxy
                 uri: http://apidotnetframework-prod.us-east-1.elasticbeanstalk.com
                 payloadFormatVersion: '1.0'
-          /weatherforecast:
-            get:
-              responses: {}
           /api/books:
             x-amazon-apigateway-any-method:
               responses: {}
@@ -47,14 +44,6 @@ Resources:
         - AWSSecretsManagerGetSecretValuePolicy:
             SecretArn: !Sub arn:${AWS::Partition}:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:/${EnvironmentTagName}/*
       Events:
-        HttpApiGETweatherforecast:
-          Type: HttpApi
-          Properties:
-            Path: /weatherforecast
-            Method: GET
-            ApiId: !Ref HttpApi
-            PayloadFormatVersion: '2.0'
-            TimeoutInMillis: 29000
         HttpApiANYapibooks:
           Type: HttpApi
           Properties:
